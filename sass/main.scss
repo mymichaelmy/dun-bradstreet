@@ -1,0 +1,127 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+
+//breakpoint
+$breakpointOfMobile:400;
+
+//mixin for media query
+@mixin respond-to($breakpoint)
+{
+	@media (min-width:$breakpoint+px)
+	{
+		@content;
+	}
+}
+
+html,body
+{
+	height:100%;
+	font-family: "Raleway", helvetica, sans-serif;
+	font-size:10px;
+	-webkit-font-smoothing: antialiased;
+	background-color:#c8dce5;
+}
+
+/*headerpart*/
+header
+{
+	padding:2.6rem 5rem 5.2rem;
+	vertical-align:middle;
+	font-size:1.8rem;
+	h1
+	{
+		display: inline-block;
+		vertical-align:middle;
+	}
+
+	span
+	{
+		float:right;
+		display: inline-block;
+		vertical-align: middle;
+		font-family: "helvetica",sans-serif;
+		color: #002551;
+		line-height: 4.4rem;
+	}
+	button
+	{
+		float:right;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left:3rem;
+		padding:1.4rem 2.3rem;
+		background-color:#76a858;
+		border-style: none;
+		
+		font-size:1.6rem;
+		color: #ffffff;
+		@include border-radius(4px);
+	}
+}
+
+/*main content*/
+.main-body
+{
+	width:100%;
+	margin:0 auto;
+	background-color:#ffffff;
+	@include respond-to($breakpointOfMobile)
+	{
+		width: 1000px;
+	}
+}
+.video
+{
+	font-size:0;
+}
+iframe
+{
+	display:block;
+	width:100%;
+	height:200px;
+	@include respond-to($breakpointOfMobile)
+	{
+		height:556px;
+	}
+}
+
+/*sticky bar*/
+#sticky-bar
+{
+	width:100;
+	text-align:center;
+	color:#ffffff;
+	padding:1.8rem;
+	background-color:#4096b5;
+	font-size:3rem;
+	font-weight:400;
+}
+
+.intro-wrapper
+{
+	padding:0 52px;
+	font-size:1.8rem;
+	line-height:1.5;
+	section
+	{
+		padding:64px 18px;
+
+		p
+		{
+			margin-top:3.6rem;
+		}
+	}
+
+	h1
+	{
+		font-size: 2.8rem;
+		color: #4096b5;
+		font-weight:500;
+	}
+}
