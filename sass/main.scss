@@ -8,7 +8,7 @@
 @import "compass/utilities";
 
 //breakpoint
-$breakpointOfMobile:400;
+$breakpointOfMobile:450;
 
 //mixin for media query
 @mixin respond-to($breakpoint)
@@ -31,30 +31,50 @@ html,body
 /*headerpart*/
 header
 {
-	padding:2.6rem 5rem 5.2rem;
+	padding:2.6rem 5rem;
 	vertical-align:middle;
 	font-size:1.8rem;
+	overflow:hidden;
+	text-align: center;  /*center in mobile version*/
+	@include respond-to($breakpointOfMobile)
+	{
+		text-align: left;  
+	}
+
 	h1
 	{
 		display: inline-block;
 		vertical-align:middle;
+		margin-bottom:2.6rem;
+
 	}
 
 	span
 	{
-		float:right;
+		@include respond-to($breakpointOfMobile)
+		{
+			float:right;
+		}
+		
 		display: inline-block;
 		vertical-align: middle;
 		font-family: "helvetica",sans-serif;
 		color: #002551;
 		line-height: 4.4rem;
+
+
 	}
 	button
 	{
-		float:right;
+		@include respond-to($breakpointOfMobile)
+		{
+			float:right;
+			margin-left:3rem;
+		}
+		
 		display: inline-block;
 		vertical-align: middle;
-		margin-left:3rem;
+		
 		padding:1.4rem 2.3rem;
 		background-color:#76a858;
 		border-style: none;
@@ -94,7 +114,7 @@ iframe
 /*sticky bar*/
 #sticky-bar
 {
-	width:100;
+	width:100%;
 	text-align:center;
 	color:#ffffff;
 	padding:1.8rem;
@@ -103,18 +123,64 @@ iframe
 	font-weight:400;
 }
 
+.fixedBar
+{
+	
+	position:fixed;
+	width:100%;
+	top: 0;
+
+}
+
 .intro-wrapper
 {
-	padding:0 52px;
+	padding:0 10px;
+	
 	font-size:1.8rem;
 	line-height:1.5;
+	@include respond-to($breakpointOfMobile)
+	{
+		padding:0 52px;
+	}
+
 	section
 	{
-		padding:64px 18px;
-
+		padding:64px 12px;
+		border-bottom-style:solid;
+		border-bottom-width:2px;
+		border-bottom-color:#767676;
+		overflow: hidden;
+		
+		&:last-of-type
+		{
+			border-bottom-style:none;
+		}
+		div
+		{
+			margin-bottom:20px;
+			@include respond-to($breakpointOfMobile)
+			{
+				width:430px;
+				margin: 0;
+			}
+		}
 		p
 		{
 			margin-top:3.6rem;
+		}
+
+		img
+		{
+			display: block;
+			width: 96%;
+			margin:0 auto;
+
+			@include respond-to($breakpointOfMobile)
+			{
+				margin:0;
+				width: 380px;
+				
+			}
 		}
 	}
 
@@ -125,3 +191,73 @@ iframe
 		font-weight:500;
 	}
 }
+
+/*text center align*/
+.text-center
+{
+	text-align:center;
+}
+
+/*define the float direction of text, only needed in desktop*/
+@include respond-to($breakpointOfMobile)
+{
+	
+	div
+	{
+		.text-float-left &
+		{
+			float:left;
+			margin-right:16px;
+		}
+
+		.text-float-right &
+		{
+			float:right;
+			margin-left:16px;
+		}
+	}
+}
+
+/*position adjustion for icon*/
+/*define the float direction of text*/
+@include respond-to($breakpointOfMobile)
+{
+	#icon1
+	{
+		margin-top:100px;
+	}
+
+	#icon2
+	{
+		margin-top:42px;
+	}
+
+	.offset-top-margin
+	{
+		margin-top:26px;
+	}
+
+}
+
+footer
+{
+	background-color:#4096b5;
+	color:#ffffff;
+	padding: 56px 10px;
+	line-height:1.5;
+	h1
+	{
+		font-size: 3.4rem;
+	}
+
+	p
+	{
+		font-size: 1.8rem;
+	
+		&+h1
+		{
+			margin-top: 60px;
+		}
+	}
+}
+
