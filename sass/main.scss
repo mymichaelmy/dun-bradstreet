@@ -98,23 +98,33 @@ header
 }
 .video
 {
+	display:block;
+	position:relative;
+	padding-bottom:55%;
+	height:0;
+	
 	font-size:0;
+	overflow:hidden;
+
 }
 iframe
 {
-	display:block;
+	
+	position:absolute;
+	vertical-align:text-bottom;
+	top:0;
+	left:0;
 	width:100%;
-	height:200px;
+	height:100%;
 	@include respond-to($breakpointOfMobile)
 	{
-		height:556px;
+		
 	}
 }
 
 /*sticky bar*/
 #sticky-bar
 {
-	width:100%;
 	text-align:center;
 	color:#ffffff;
 	padding:1.8rem;
@@ -129,6 +139,11 @@ iframe
 	position:fixed;
 	width:100%;
 	top: 0;
+	box-sizing:border-box;
+	@include respond-to($breakpointOfMobile)
+	{
+		width: 1000px;
+	}
 
 }
 
@@ -239,6 +254,7 @@ iframe
 
 }
 
+/*footer part*/
 footer
 {
 	background-color:#4096b5;
